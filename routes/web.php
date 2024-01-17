@@ -1,6 +1,8 @@
 <?php
 
+use App\Livewire\Admin\DashboardComponent;
 use App\Livewire\HomeComponent;
+use App\Livewire\LoginComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +21,8 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', HomeComponent::class)->name('home');
+Route::get('login', LoginComponent::class)->name('login');
+
+Route::middleware('auth', 'authadmin')->group(function (){
+    Route::get('/admin/dashboard', DashboardComponent::class)->name('dashboard');
+});

@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('food', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('type');
+            $table->string('category_id');
             $table->string('picture');
+            $table->string('other')->nullable();
             $table->timestamps();
         });
     }

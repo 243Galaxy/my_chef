@@ -9,7 +9,7 @@ class HomeComponent extends Component
 {
     public function render()
     {
-        // $categories = Category::get();
-        return view('livewire.home-component')->layout('layouts.home');
+        $categories = Category::take(5)->get();
+        return view('livewire.home-component', ['categories' => $categories])->layout('layouts.home');
     }
 }
